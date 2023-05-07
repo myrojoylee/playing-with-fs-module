@@ -61,6 +61,22 @@ const passwordQuestions = [
 //       err ? console.error(err) : console.log("done")
 //     )
 //   );
+let markdownLanguage;
+let testMessage = `\n### This message was appended in Node to the README!`;
+inquirer
+  .prompt(questionBank)
+  .then(function (response) {
+    markdownLanguage = `# ${response.languages}`;
+  })
+  .then(function () {
+    fs.appendFile("README.md", testMessage, (err) =>
+      err ? console.lerror(err) : console.log("done")
+    );
+  });
+
+// function formatResponse(response) {
+//   markdownLanguage = `# ${response.languages}`;
+// }
 
 // fs.readFile("data.csv", "utf8", (error, data) =>
 //   error ? console.error(error) : console.log(data)
@@ -153,22 +169,44 @@ const passwordQuestions = [
 //     console.log("invalid inputs, try again");
 // }
 
-const outputCyanText = (text) => console.log(`\x1b[36m${text}\x1b[0m`);
+// const outputCyanText = (text) => console.log(`\x1b[36m${text}\x1b[0m`);
 
-const songs = [
-  "1: MONTERO (Call Me By Your Name)",
-  "2: Peaches (feat. Daniel Caesar & Giveon)",
-  "3: Kiss Me More (feat. SZA)",
-  "4: Astronaut In The Ocean",
-  "5: Save Your Tears (with Ariana Grande) (Remix)",
-  "6. RAPSTAR",
-  "7. Levitating (feat. DaBaby)",
-  "8. Leave The Door Open",
-  "9. Botella Tras Botella",
-  "10. Fiel",
-];
+// const songs = [
+//   "1: MONTERO (Call Me By Your Name)",
+//   "2: Peaches (feat. Daniel Caesar & Giveon)",
+//   "3: Kiss Me More (feat. SZA)",
+//   "4: Astronaut In The Ocean",
+//   "5: Save Your Tears (with Ariana Grande) (Remix)",
+//   "6. RAPSTAR",
+//   "7. Levitating (feat. DaBaby)",
+//   "8. Leave The Door Open",
+//   "9. Botella Tras Botella",
+//   "10. Fiel",
+// ];
 
-console.log("Spotify top 10:\n");
+// console.log("Spotify top 10:\n");
 
 //  no curly braces needed .... ??? see below
-for (const song of songs) outputCyanText(song);
+// for (const song of songs) outputCyanText(song);
+
+// function add(x, y, z) {
+//   return x + y + z;
+// }
+// console.log(add(1, 2, 3, 4, 5));
+
+// function subtract(...nums) {
+//   let difference = 0;
+//   for (let num of nums) difference -= num;
+//   return difference;
+// }
+
+// console.log(subtract(1));
+// console.log(subtract(6, 3, -4));
+// console.log(subtract(3, 6));
+
+// function howManyArgs(...args) {
+//   return `You passed ${args.length} arguments.`;
+// }
+
+// console.log(howManyArgs(1, 2, 4));
+// console.log(howManyArgs("argument!", null, ["one", 2, "three"], 4));
